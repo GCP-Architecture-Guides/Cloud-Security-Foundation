@@ -14,7 +14,12 @@
  * limitations under the License.
  */
 
+
 ## NOTE: This provides PoC demo environment for various use cases ##
 ##  This is not built for production workload ##
 
 
+
+output "dlp_project_id" {
+  value = google_project.dlp_project.project_id
+}

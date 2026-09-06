@@ -14,7 +14,39 @@
  * limitations under the License.
  */
 
+
 ## NOTE: This provides PoC demo environment for various use cases ##
 ##  This is not built for production workload ##
+ 
+ 
+ variable idstag {
+ }
 
 
+variable vpc_network_name {
+}
+
+ variable network_zone{
+
+ }
+
+  variable network_region {
+    
+ }
+
+ variable random_string {
+    
+ }
+
+ variable folder_id {
+}
+
+variable billing_account {    
+}
+
+variable demo_project_id {
+}
+
+variable proxy_access_identities {
+    
+}

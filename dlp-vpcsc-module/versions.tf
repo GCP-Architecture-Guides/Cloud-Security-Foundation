@@ -14,7 +14,27 @@
  * limitations under the License.
  */
 
+
 ## NOTE: This provides PoC demo environment for various use cases ##
 ##  This is not built for production workload ##
 
+terraform {
+  required_version = ">= 1.1.0"
+  required_providers {
+    google = {
+      source  = "registry.terraform.io/hashicorp/google"
+      
+    }
+    google-beta = {
+      source  = "hashicorp/google-beta"
+      version = ">= 4.32.0" # tftest
+    }
+  }
+}
+
+provider "google" {
+    alias = "service"
+user_project_override = true
+billing_project = google_project.dlp_project.project_id
+}
 

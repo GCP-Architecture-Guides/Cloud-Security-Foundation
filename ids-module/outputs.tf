@@ -14,7 +14,15 @@
  * limitations under the License.
  */
 
+
 ## NOTE: This provides PoC demo environment for various use cases ##
 ##  This is not built for production workload ##
 
 
+output "ids_project_id" {
+  value = google_project.ids_project.project_id
+}
+
+output "ids_attacker_machine" {
+  value = google_compute_instance.ids_attacker_machine.name
+}

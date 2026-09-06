@@ -14,7 +14,14 @@
  * limitations under the License.
  */
 
+
 ## NOTE: This provides PoC demo environment for various use cases ##
 ##  This is not built for production workload ##
 
 
+
+
+
+output "appmod_project_id" {
+value = google_project.appmod_project.project_id
+}

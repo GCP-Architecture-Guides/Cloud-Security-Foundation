@@ -1,5 +1,5 @@
 /**
- * Copyright 2022 Google LLC
+ * Copyright 2023 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,20 +14,15 @@
  * limitations under the License.
  */
 
-
 ## NOTE: This provides PoC demo environment for various use cases ##
 ##  This is not built for production workload ##
 
-
-
-
-
 #Create the service Account
 resource "google_service_account" "def_ser_acc" {
-   project = google_project.demo_project.project_id
-   account_id   = "sa-service-account"
-   display_name = "CLoud SQL Service Account"
- }
+  project      = google_project.demo_project.project_id
+  account_id   = "sa-service-account"
+  display_name = "CLoud SQL Service Account"
+}
 
 
 data "google_project" "project" {
@@ -179,7 +174,7 @@ module "secret-manager" {
 }
 
 # Creating the Cloud Run instance for the applilcaiton API
- resource "google_cloud_run_service" "api" {
+resource "google_cloud_run_service" "api" {
   name     = "${var.deployment_name}-api"
   provider = google-beta
   location = var.network_region
@@ -192,7 +187,7 @@ module "secret-manager" {
       containers {
         image = local.api_image
         env {
-         name = "REDISHOST"
+          name = "REDISHOST"
           value_from {
             secret_key_ref {
               name = "redishost"
@@ -202,7 +197,7 @@ module "secret-manager" {
         }
         env {
           name = "todo_host"
-         value_from {
+          value_from {
             secret_key_ref {
               name = "sqlhost"
               key  = "latest"
@@ -232,7 +227,7 @@ module "secret-manager" {
         env {
           name  = "todo_name"
           value = "todo"
-       }
+        }
 
         env {
           name  = "REDISPORT"
@@ -275,7 +270,7 @@ resource "google_cloud_run_service" "fe" {
       service_account_name = google_service_account.runsa.email
       containers {
         image = local.fe_image
-        
+
         ports {
           container_port = 80
         }
@@ -297,10 +292,10 @@ resource "google_cloud_run_service_iam_member" "noauth_api" {
   project  = google_cloud_run_service.api.project
   service  = google_cloud_run_service.api.name
   role     = "roles/run.invoker"
- 
-#  member   = "allUsers" # enable if you wish to see the URL access in browser and comment the below member def and depends on, also update the below IAM policy constraint
-#  depends_on = [google_project_organization_policy.domain_restricted_sharing]
-  member = var.proxy_access_identities  
+
+  #  member   = "allUsers" # enable if you wish to see the URL access in browser and comment the below member def and depends on, also update the below IAM policy constraint
+  #  depends_on = [google_project_organization_policy.domain_restricted_sharing]
+  member = var.proxy_access_identities
 }
 
 # Setting up the IAM access for Cloud Run Application instance
@@ -309,10 +304,10 @@ resource "google_cloud_run_service_iam_member" "noauth_fe" {
   project  = google_cloud_run_service.fe.project
   service  = google_cloud_run_service.fe.name
   role     = "roles/run.invoker"
-    
-# member   = "allUsers" # enable if you wish to see the URL access in browser and uncomment the below member def and depends on, also update the below IAM policy constraint
-#  depends_on = [google_project_organization_policy.domain_restricted_sharing]
-member = var.proxy_access_identities
+
+  # member   = "allUsers" # enable if you wish to see the URL access in browser and uncomment the below member def and depends on, also update the below IAM policy constraint
+  #  depends_on = [google_project_organization_policy.domain_restricted_sharing]
+  member = var.proxy_access_identities
 }
 
 

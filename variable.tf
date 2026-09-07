@@ -1,5 +1,5 @@
 /**
- * Copyright 2022 Google LLC
+ * Copyright 2023 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,35 +14,33 @@
  * limitations under the License.
  */
 
-
 ## NOTE: This provides PoC demo environment for various use cases ##
 ##  This is not built for production workload ##
 
-
-variable organization_id {
+variable "organization_id" {
 }
 
-variable billing_account {    
+variable "billing_account" {
 }
 
-variable folder_name {
-}
-
-
-variable demo_project_id {
+variable "folder_name" {
 }
 
 
-variable vpc_network_name {
+variable "demo_project_id" {
 }
 
 
- variable network_zone{
- }
+variable "vpc_network_name" {
+}
 
 
-  variable network_region {
- }
+variable "network_zone" {
+}
+
+
+variable "network_region" {
+}
 
 variable "cloud_sql_proxy_version" {
   description = "Which version to use of the Cloud SQL proxy."
@@ -55,19 +53,19 @@ variable "cloud_sql_proxy_version" {
 variable "proxy_access_identities" {
   description = "Identity who require access to the SQL proxy, and database.  Every identity should be prefixed with the type, for example user:, serviceAccount: and/or group:"
   type        = string
- # default     = "user:abc@xyz.com"
+  # default     = "user:abc@xyz.com"
 }
 
 
 
 
-variable keyring_name {
+variable "keyring_name" {
 }
 
-variable crypto_key_name {
+variable "crypto_key_name" {
 }
 
- variable "labels" {
+variable "labels" {
   description = "Labels, provided as a map"
   type        = map(string)
 }
@@ -89,5 +87,5 @@ variable "app-labels" {
 variable "memorystore" {
   type        = bool
   description = "If true, Online Boutique's in-cluster Redis cache will be replaced with a Google Cloud Memorystore Redis cache"
-  default = false
+  default     = false
 }

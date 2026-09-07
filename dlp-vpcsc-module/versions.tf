@@ -1,5 +1,5 @@
 /**
- * Copyright 2022 Google LLC
+ * Copyright 2023 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 ## NOTE: This provides PoC demo environment for various use cases ##
 ##  This is not built for production workload ##
 
@@ -22,8 +21,8 @@ terraform {
   required_version = ">= 1.1.0"
   required_providers {
     google = {
-      source  = "registry.terraform.io/hashicorp/google"
-      
+      source = "registry.terraform.io/hashicorp/google"
+
     }
     google-beta = {
       source  = "hashicorp/google-beta"
@@ -33,8 +32,8 @@ terraform {
 }
 
 provider "google" {
-    alias = "service"
-user_project_override = true
-billing_project = google_project.dlp_project.project_id
+  alias                 = "service"
+  user_project_override = true
+  billing_project       = google_project.dlp_project.project_id
 }
 

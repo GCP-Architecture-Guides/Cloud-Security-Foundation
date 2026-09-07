@@ -1,3 +1,22 @@
+/**
+ * Copyright 2023 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+## NOTE: This provides PoC demo environment for various use cases ##
+##  This is not built for production workload ##
+
 # Trusted Supply Chain demo — root module: APIs, Artifact Registry, KMS, Container Analysis,
 # Binary Authorization (note + attestor + enforce policy), Secret Manager, GKE Autopilot.
 
@@ -276,12 +295,12 @@ resource "google_compute_network" "demo" {
 }
 
 resource "google_compute_subnetwork" "demo" {
-  project                    = var.project_id
-  name                       = var.subnet_name
-  region                     = var.region
-  network                    = google_compute_network.demo.id
-  ip_cidr_range              = "10.10.0.0/16"
-  private_ip_google_access   = true
+  project                  = var.project_id
+  name                     = var.subnet_name
+  region                   = var.region
+  network                  = google_compute_network.demo.id
+  ip_cidr_range            = "10.10.0.0/16"
+  private_ip_google_access = true
 
   secondary_ip_range {
     range_name    = "pods"

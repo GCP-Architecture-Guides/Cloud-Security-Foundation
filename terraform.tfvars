@@ -20,20 +20,20 @@
 
 
 # The below three variable must be updated for the PoC
-organization_id = "XXXXXXXXXXX"
-billing_account = "XXXXXX-XXXXXXX-XXXXXX"
+organization_id         = "XXXXXXXXXXX"
+billing_account         = "XXXXXX-XXXXXXX-XXXXXX"
 proxy_access_identities = "user:username@domain.com"
 
 
 
 # Below variable can be update per customer use cases
-folder_name = "Security Foundation Sol "
-demo_project_id = "sf-sol-poc-" 
+folder_name      = "Security Foundation Sol "
+demo_project_id  = "sf-sol-poc-"
 vpc_network_name = "host-network"
-network_region = "us-east1"
-network_zone = "us-east1-b"
+network_region   = "us-east1"
+network_zone     = "us-east1-b"
 
-keyring_name = "my-keyring"
+keyring_name    = "my-keyring"
 crypto_key_name = "my-symmetric-key"
 
 labels = {

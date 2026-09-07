@@ -1,5 +1,5 @@
 /**
- * Copyright 2022 Google LLC
+ * Copyright 2023 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,39 +14,37 @@
  * limitations under the License.
  */
 
-
 ## NOTE: This provides PoC demo environment for various use cases ##
 ##  This is not built for production workload ##
- 
- 
- variable idstag {
- }
 
-
-variable vpc_network_name {
+variable "idstag" {
 }
 
- variable network_zone{
 
- }
-
-  variable network_region {
-    
- }
-
- variable random_string {
-    
- }
-
- variable folder_id {
+variable "vpc_network_name" {
 }
 
-variable billing_account {    
+variable "network_zone" {
+
 }
 
-variable demo_project_id {
+variable "network_region" {
+
 }
 
-variable proxy_access_identities {
-    
+variable "random_string" {
+
+}
+
+variable "folder_id" {
+}
+
+variable "billing_account" {
+}
+
+variable "demo_project_id" {
+}
+
+variable "proxy_access_identities" {
+
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright 2022 Google LLC
+ * Copyright 2023 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,10 +14,8 @@
  * limitations under the License.
  */
 
-
 ## NOTE: This provides PoC demo environment for various use cases ##
 ##  This is not built for production workload ##
-
 
 output "ids_project_id" {
   value = google_project.ids_project.project_id

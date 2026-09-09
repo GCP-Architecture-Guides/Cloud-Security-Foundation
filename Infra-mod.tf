@@ -22,7 +22,7 @@ resource "random_string" "id" {
   length  = 4
   upper   = false
   lower   = true
-  number  = true
+  numeric = true
   special = false
 }
 
@@ -663,7 +663,7 @@ resource "google_secret_manager_secret" "sql_db_user_password" {
   project   = google_project.demo_project.project_id
   secret_id = "sql-db-password"
   replication {
-    automatic = true
+    auto {}
   }
   depends_on = [time_sleep.wait_120_seconds_enable_service_api]
 }
@@ -679,7 +679,7 @@ resource "google_secret_manager_secret" "sql_db_user_name" {
   project   = google_project.demo_project.project_id
   secret_id = "sql-db-uname"
   replication {
-    automatic = true
+    auto {}
   }
   depends_on = [time_sleep.wait_120_seconds_enable_service_api]
 }
